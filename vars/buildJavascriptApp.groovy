@@ -3,16 +3,16 @@ def call(Map config=[:], Closure body) {
         git url: "https://github.com/jabedhasan21/java-hello-world-with-maven.git"
 
         stage("Compile") {
-            sh "mvn compile"
+            sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn compile"
         }
 
         stage("Package") {
-            sh "mvn package"
+            sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn package"
         }
 
         stage("Install") {
             if (config.deploy) {
-                sh "mvn install"
+                sh "/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/mvn/bin/mvn install"
             }
         }
 
